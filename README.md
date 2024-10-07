@@ -20,6 +20,8 @@
 
 6. Дан код:
 
+```
+<?php
 class A {
 public function foo() {
 static $x = 0;
@@ -32,11 +34,14 @@ $a1->foo();
 $a2->foo();
 $a1->foo();
 $a2->foo();
+```
 
 Что он выведет на каждом шаге? Почему?
 
 Немного изменим п.5
 
+```
+<?php
 class A {
 public function foo() {
 static $x = 0;
@@ -51,5 +56,6 @@ $a1->foo();
 $b1->foo();
 $a1->foo();
 $b1->foo();
+```
 
 Что он выведет теперь?
