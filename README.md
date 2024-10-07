@@ -4,7 +4,43 @@
 
 1. Придумайте класс, который описывает любую сущность из предметной области библиотеки: книга, шкаф, комната и т.п.
 
+### Решение:
+
+Создадим класс книга:
+
+```
+<?php
+
+class Book{
+}
+```
+
 2. Опишите свойства классов из п.1 (состояние).
+
+Введем переменные в классе и определим их в методе __construct:
+
+```
+<?php
+
+class Book{
+
+    private int $id;
+    private string $name;
+    private string $author;
+    private int $year;
+    private string $ISBN; //пример ISBN кода 978-5-699-12014-7
+    private int $count;
+
+    public function __construct(string $name, string $author, int $year, string $ISBN, int $count)
+    {
+        $this -> name = $name;
+        $this -> author = $author;
+        $this -> year = $year;
+        $this -> ISBN = $ISBN;
+        $this -> count = $count;
+    }
+}
+```
 
 3. Опишите поведение классов из п.1 (методы).
 
