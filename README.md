@@ -99,6 +99,86 @@ class Book{
 У цифровой книги надо вернуть ссылку на скачивание, а у физической – адрес библиотеки, где ее можно получить. У всех книг формируется в конечном итоге статистика по кол-ву прочтений.
 Что можно вынести в абстрактный класс, а что надо унаследовать?
 
+### Решение:
+
+Код для абстрактной книги:
+
+```
+<?php
+
+<?php
+
+abstruct class Book{
+    private int $id;
+    private string $name;
+    private string $author;
+    private int $year;
+    private string $ISBN; //пример ISBN кода 978-5-699-12014-7
+    private int $count;
+    private int $num;
+
+    public function __construct(string $name, string $author, int $year, string $ISBN, int $count)
+    {
+        $this -> name = $name;
+        $this -> author = $author;
+        $this -> year = $year;
+        $this -> ISBN = $ISBN;
+        $this -> count = $count;
+        $this -> num = 0;
+    }
+
+    public function toString(){
+        echo "\n\rНазвание: " . $this->name . "\n\rАвтор: " . $this->author . "\n\rГод издания: " . $this->year . "\n\rISBN: " . $this->ISBN . "\n\rКоличество экземпляров: " . $this->count . "\n\r";
+    }
+
+    public function setID(int $setid){
+        $this->id = $setid;
+    }
+
+    public function getID(){
+        echo "ID:" . $this->id . "\n\r";
+    }
+
+    public function addNum(){
+        Book::setNum();
+    }
+
+    protected function setNum()
+    {
+        $this -> num +=1;
+    }
+
+    public function getNum(){
+        echo "Число полученных книг:" . $this->num . "\n\r";
+    }
+
+    
+}
+```
+
+Код для электронной книги:
+
+```
+<?php
+
+class ElectronBook extends Book{
+    private string $link;
+    public function __construct(string $name, string $author, int $year, string $ISBN, int $count, string $link)
+    {
+        parent::__construct($name, $author, $year, $ISBN, $count);
+        $this -> link = $link;
+    }
+
+    public function info(){
+        echo parent::toString() . "\n\rСсылка на скачивание: " . $this->link . "\n\r";        
+    }
+
+    public function download() {
+        parent::setNum();
+    }
+}
+```
+
 6. Дан код:
 
 ```
