@@ -24,12 +24,12 @@ class Book{
 
 class Book{
 
-    private int $id;
+    private int $id; // ID книги
     private string $name; // Имя книги
-    private string $author;
-    private int $year;
+    private string $author; // Автор книги
+    private int $year; // Год издательства
     private string $ISBN; //пример ISBN кода 978-5-699-12014-7
-    private int $count;
+    private int $count; // Тираж
 
     public function __construct(string $name, string $author, int $year, string $ISBN, int $count)
     {
