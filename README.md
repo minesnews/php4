@@ -25,7 +25,7 @@ class Book{
 class Book{
 
     private int $id;
-    private string $name;
+    private string $name; // Имя книги
     private string $author;
     private int $year;
     private string $ISBN; //пример ISBN кода 978-5-699-12014-7
