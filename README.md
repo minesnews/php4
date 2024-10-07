@@ -23,10 +23,10 @@
 ```
 <?php
 class A {
-public function foo() {
-static $x = 0;
-echo ++$x;
-}
+  public function foo() {
+    static $x = 0;
+    echo ++$x;
+  }
 }
 $a1 = new A();
 $a2 = new A();
@@ -43,12 +43,13 @@ $a2->foo();
 ```
 <?php
 class A {
-public function foo() {
-static $x = 0;
-echo ++$x;
+  public function foo() {
+    static $x = 0;
+    echo ++$x;
+  }
 }
-}
-class B extends A {
+class B extends A
+{
 }
 $a1 = new A();
 $b1 = new B();
