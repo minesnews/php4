@@ -179,6 +179,61 @@ class ElectronBook extends Book{
 }
 ```
 
+Код для бумажной книги:
+
+```
+<?php
+
+class PaperBook extends Book{
+    private string $adress;
+    public function __construct(string $name, string $author, int $year, string $ISBN, int $count, string $adress)
+    {
+        parent::__construct($name, $author, $year, $ISBN, $count);
+        $this -> adress = $adress;
+    }
+
+    public function info(){
+        echo parent::toString() . "\n\rАдрес библиотеки: " . $this->adress . "\n\r";        
+    }
+
+    public function getBook() {
+        parent::setNum();
+    }
+
+    public function getPaperBook(){
+        echo "Число взятых книг:" . parent::getNum() . "\n\r";
+    }
+}
+```
+
+Код для создания книг:
+
+```
+<?php
+
+require('./vendor/autoload.php');
+require('src/Book.php');
+require('src/ElectronBook.php');
+require('src/PaperBook.php');
+
+use App\Oop\App;
+
+$app = new App();
+$index1 = new ElectronBook("Электронная книга", "Петров Петр", 1997, "178-5-699-12014-7", 300, "app_run.php");
+$index1 -> toString();
+$index1 -> getElectronBook();
+$index1 -> download();
+$index1 -> info();
+$index1 -> getElectronBook();
+
+$index2 = new PaperBook("Бумажная книга", "Сидоров Иван", 2007, "378-4-699-12016-7", 300, "Москва");
+$index2 -> toString();
+$index2 -> getPaperBook();
+$index2 -> getBook();
+$index2 -> info();
+$index2 -> getPaperBook();
+```
+
 6. Дан код:
 
 ```
